@@ -1,0 +1,43 @@
+{
+    "name": "xml2json-light",
+    "version": "1.0.4",
+    "description": "This function acts as an XML to JSON converter. The function is extremely small and is in pure JavaScript, therefore it has no dependencies.  The converter takes XML attributes into consideration.  ## Installation ``` Download and use the function directl",
+    "main": "xml2json.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/enkidoo-ai/xml2json.git"
+    },
+    "keywords": [
+      "xml2json",
+      "xmltojson",
+      "xml",
+      "to",
+      "json",
+      "json",
+      "parser",
+      "light"
+    ],
+    "author": {
+      "name": "Enkidoo Technologies Inc."
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/enkidoo-ai/xml2json/issues"
+    },
+    "homepage": "https://github.com/enkidoo-ai/xml2json",
+    "contributors": [
+      {
+        "name": "ENKIDOO.AI - info@enkidoo.ai"
+      }
+    ],
+    "maintainers": [
+      {
+        "name": "info_enkidoo",
+        "email": "info@enkidoo.ai"
+      }
+    ]
+  }
+  
