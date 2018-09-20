@@ -158,7 +158,7 @@ function replaceAttributes(xmlStr) {
         for (var i = 0; i < tagsWithAttributes.length; i++) {
            
             var oldTag = tagsWithAttributes[i];
-            var tagName = oldTag.match(/[^<][\w+$]*/)[0];
+            var tagName = oldTag.match(/[^<]\S*/)[0];
             var newTag = "<" + tagName + ">";
             var attrs = oldTag.match(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g);
 
