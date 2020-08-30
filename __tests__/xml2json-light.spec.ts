@@ -3,7 +3,6 @@ import * as fixtures from './fixtures/xml.fixtures';
 describe('Xml to Json parser', () => {
   it('should parse lower case xml', () => {
     const obj = xml2json(fixtures.planes);
-    console.log(JSON.stringify(obj));
 
     expect(obj).toEqual({
       empty: '',
@@ -21,7 +20,6 @@ describe('Xml to Json parser', () => {
 
   it('should parse complex xml', () => {
     const obj = xml2json(fixtures.complex);
-    console.log(JSON.stringify(obj));
 
     expect(obj).toEqual({
       catalog: {
