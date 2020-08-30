@@ -1,43 +1,44 @@
 {
-    "name": "xml2json-light",
-    "version": "1.0.4",
-    "description": "This function acts as an XML to JSON converter. The function is extremely small and is in pure JavaScript, therefore it has no dependencies.  The converter takes XML attributes into consideration.  ## Installation ``` Download and use the function directl",
-    "main": "xml2json.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "xml2json-light",
+  "version": "1.0.4",
+  "description": "An XML to JSON converter.",
+  "main": "xml2json.ts",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivan-Kouznetsov/xml2json-light"
+  },
+  "keywords": [
+    "xml2json",
+    "xmltojson",
+    "xml",
+    "to",
+    "json",
+    "json",
+    "parser",
+    "light"
+  ],
+  "author": {
+    "name": "Enkidoo Technologies Inc."
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "ENKIDOO.AI - info@enkidoo.ai"
     },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/enkidoo-ai/xml2json.git"
-    },
-    "keywords": [
-      "xml2json",
-      "xmltojson",
-      "xml",
-      "to",
-      "json",
-      "json",
-      "parser",
-      "light"
-    ],
-    "author": {
-      "name": "Enkidoo Technologies Inc."
-    },
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/enkidoo-ai/xml2json/issues"
-    },
-    "homepage": "https://github.com/enkidoo-ai/xml2json",
-    "contributors": [
-      {
-        "name": "ENKIDOO.AI - info@enkidoo.ai"
-      }
-    ],
-    "maintainers": [
-      {
-        "name": "info_enkidoo",
-        "email": "info@enkidoo.ai"
-      }
-    ]
+    {
+      "name": "Ivan Kouznetsov"
+    }
+  ],
+  "devDependencies": {
+    "@types/node": "^14.6.2",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   }
-  
+}
