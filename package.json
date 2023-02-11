@@ -1,6 +1,6 @@
 {
     "name": "xml2json-light",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "This function acts as an XML to JSON converter. The function is extremely small and is in pure JavaScript, therefore it has no dependencies.  The converter takes XML attributes into consideration.  ## Installation ``` Download and use the function directl",
     "main": "xml2json.js",
     "scripts": {
