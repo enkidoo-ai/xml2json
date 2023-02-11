@@ -23,7 +23,28 @@ function xml2jsonRecurse(xmlStr) {
         openingTag = xmlStr.match(/<[^\/][^>]*>/)[0];
         tagName = openingTag.substring(1, openingTag.length - 1);
         indexClosingTag = xmlStr.indexOf(openingTag.replace('<', '</'));
+        
+		// indexClosingTag is the first occurance of the closing tag, if there are same tags in other hierarchy, then this is the wrong catch
+		// search for next openingTag is needed
+		// if the next openingTag has smaller index than the next closingIndex then this portion must be part of the string
+		let tmpString = xmlStr.substring(openingTag.length, xmlStr.length);
+		let nextOpeningIndex = tmpString.indexOf(openingTag);
+		let nextClosingIndex = tmpString.indexOf(openingTag.replace('<', '</'));
+		let cutLength = openingTag.length + nextClosingIndex;
 
+		// indexClosingTag to be replaced when not beeing itself and there is deeper level with same tagName && tempClosingIndex < nextOpeningIndex
+		// repeat the search until only closing tag exists
+		let j = 1;
+		while (indexClosingTag != -1 && nextOpeningIndex != -1 && nextOpeningIndex < nextClosingIndex) {
+			tmpString = xmlStr.substring(cutLength + (openingTag.length + 1) * j, xmlStr.length);
+			nextOpeningIndex = tmpString.indexOf(openingTag);
+			nextClosingIndex = tmpString.indexOf(openingTag.replace('<', '</'));
+			cutLength = cutLength + nextClosingIndex;
+			//shifting the index of closing tag to the position where no other opening detected tag with same name is found
+			indexClosingTag = cutLength + (openingTag.length + 1) * j;
+			j++;
+		}
+        
         // account for case where additional information in the openning tag
         if (indexClosingTag == -1) {
 
@@ -35,7 +56,9 @@ function xml2jsonRecurse(xmlStr) {
         }
         inner_substring = xmlStr.substring(openingTag.length, indexClosingTag);
         if (inner_substring.match(/<[^\/][^>]*>/)) {
-            tempVal = xml2json(inner_substring);
+            //no need for cleanXML again
+            //tempVal = xml2json(inner_substring);
+            tempVal = xml2jsonRecurse(inner_substring);
         }
         else {
             tempVal = inner_substring;
@@ -151,8 +174,11 @@ function replaceAloneValues(xmlStr) {
 // Example : '<tagName attrName="attrValue"></tagName>' becomes '<tagName><attrName>attrValue</attrName></tagName>'
 //*****************************************************************************************************************
 function replaceAttributes(xmlStr) {
-
-    var tagsWithAttributes = xmlStr.match(/<[^\/][^>][^<]+\s+.[^<]+[=][^<]+>/g);
+    
+	// the following line doesnt catch 2 digit tags
+	//var tagsWithAttributes = xmlStr.match(/<[^\/][^>][^<]+\s+.[^<]+[=][^<]+>/g);
+	// 2 digits tags are catched
+	var tagsWithAttributes = xmlStr.match(/<[^>][^<]+\s+.[^<]+[=][^<]+>/g);
 
     if (tagsWithAttributes) {
         for (var i = 0; i < tagsWithAttributes.length; i++) {
